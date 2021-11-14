@@ -1,0 +1,43 @@
+<div class="wrapper">
+<div class="container">
+  <div class="box">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <select class="selectStyle" formControlName="first" name="first" id="1">
+        <option *ngFor="let item of crypto; let i = index" [ngValue]="i">{{item?.asset_id}}</option>
+      </select>
+
+      <select class="selectStyle" formControlName="second" name="second" id="2">
+        <option *ngFor="let item of fiat; let i = index" [ngValue]="i">{{item?.asset_id}}</option>
+      </select>
+      <br>
+      <div class="btn_box">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+
+        <button type="button" class="btn btn-secondary" (click)="stopSocket()">Stop</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="marketData">
+    <h6>Market data:</h6>
+    <div class="row">
+      <div class="col-4 item">Symbol:
+        {{msg ? msg?.asset_id_base + '/' + msg?.asset_id_quote : 0}}
+      </div>
+      <div class="col-4 item">
+        Price:
+        {{msg ? msg?.rate : 0}}
+      </div>
+      <div class="col-4 item">
+        Time:
+        {{msg ? (msg?.time | date) : 0}}
+      </div>
+    </div>
+  </div>
+
+
+    <app-canvas [param]="canvasData ? canvasData : 'BTC_USD'"></app-canvas>
+
+</div>
+
+</div>
