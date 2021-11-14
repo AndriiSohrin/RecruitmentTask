@@ -7,3 +7,9 @@ canvas {
   border-radius: 5px;
   width: 100%;
 }
+
+.spinnerBox {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+}

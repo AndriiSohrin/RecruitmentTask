@@ -17,6 +17,7 @@ export class CanvasComponent implements OnInit, OnDestroy, OnChanges {
     labels: Array<any>,
     datasets: Array<any>
   };
+  err: string | undefined
 
   options = {
     // responsive: true,
@@ -27,7 +28,7 @@ export class CanvasComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.param.currentValue != changes.param.previousValue) {
+    if (changes.param.currentValue != changes.param.previousValue && !changes.param.firstChange) {
       this.param = changes.param.currentValue
       this.getData()
     }
@@ -55,6 +56,8 @@ export class CanvasComponent implements OnInit, OnDestroy, OnChanges {
             }
           ],
         };
+      }, error => {
+        this.err = error.error.error
       })
   }
 

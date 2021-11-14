@@ -1,4 +1,12 @@
 
-<div class="wrapper">
+<div *ngIf="canvas" class="wrapper">
   <chart [type]="type" [data]="data" [options]="options"></chart>
 </div>
+
+<div *ngIf="!canvas" class="spinnerBox">
+  <div *ngIf="!err; else elseError" class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <ng-template #elseError>{{err}}</ng-template>
+</div>
+
