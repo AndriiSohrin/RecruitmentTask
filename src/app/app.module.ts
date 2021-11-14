@@ -9,8 +9,6 @@ import {AppComponent} from './app.component';
 import {MainComponent} from './components/main/main.component';
 import {CanvasComponent} from './components/canvas/canvas.component';
 
-import {SocketService} from "./services/socket.service";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +22,7 @@ import {SocketService} from "./services/socket.service";
     ReactiveFormsModule,
     ChartModule
   ],
-  providers: [SocketService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
