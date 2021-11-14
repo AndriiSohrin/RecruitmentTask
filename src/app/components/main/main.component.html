@@ -28,7 +28,7 @@
         </div>
         <div class="col-12 col-md-4 item">
           Price:
-          {{msg ? msg?.rate : 'loading'}}
+          {{msg ? (msg?.rate  | number: '1.0-2') : 'loading'}}
         </div>
         <div class=" col-12 col-md-4 item">
           Time:
