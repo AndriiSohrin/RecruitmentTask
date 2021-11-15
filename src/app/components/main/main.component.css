@@ -10,6 +10,9 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 25px;
+  border-radius: 8px;
+  border: 2px solid black;
+  padding: 50px;
 }
 
 form {
